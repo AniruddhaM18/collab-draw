@@ -14,29 +14,63 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
-  emali     String    @unique
-  password  String
-  name      String
-  photo     String?
-  rooms     Room[]
-  chats     Chat[]
+  id              String    @id @default(uuid())
+  username        String    @unique
+  password        String
+  name            String
+  photo           String?
+  joinedRooms     Room[] @relation(name: "participants")
+  controlledrooms Room[]
+  chat            Chat[]
 }
 
 model Room {
-  id        Int      @id @default(autoincrement())
-  slug      String   @unique
-  createdAt DateTime @default(now())
-  adminId   String 
-  admin     User     @relation(fields: [adminId], references: [id])
-  chats     Chat[]
+  id           String @id @default(uuid())
+  title        String
+  joinCode     String @unique
+  participants User[] @relation(name: "participants")
+  admin        User @relation(fields: [adminId], references: [id])
+  adminId      String
+  chat         Chat[]
+  draw         Draw[]
+  createdAt    DateTime @default(now())
 }
 
 model Chat {
-  id       Int   @id @default(autoincrement())
-  roomId   Int 
-  message  String
-  userId   String
-  room     Room  @relation(fields: [roomId], references: [id])
-  user     User  @relation(fields: [userId], references: [id])
+  id             String @id @default(uuid())
+  serialNumber   Int @default(autoincrement())
+  content        String
+  user           User @relation(fields: [userId], references: [id])
+  userId         String
+  room           Room @relation(fields: [roomId], references: [id])
+  roomId         String
+  createdAt      DateTime @default(now())
+}
+
+enum Shape {
+  rectangle
+  diamond
+  circle
+  line 
+  arrow
+  text
+  freehand
+}
+
+model Draw {
+  id           String @id
+  shape        Shape
+  strokeStyle  String
+  fillStyle    String
+  lineWidth    Int
+  font         String?
+  fontSize     String?
+  startX       Int?
+  startY       Int?
+  endX         Int?
+  endY         Int?
+  text         String?
+  points       Json?
+  room         Room @relation(fields: [roomId] , references: [id])
+  roomId       String
 }
