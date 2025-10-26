@@ -17,7 +17,9 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/ws": "^8.18.1",
     "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "ws": "^8.18.3"
@@ -28,6 +30,7 @@
   "type": "module",
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19"
   }
 }
