@@ -113,7 +113,7 @@ export async function signin(req: Request, res:Response) {
     }
 }
 
-async function signout(req: Request, res: Response){
+export async function signout(req: Request, res: Response){
     res.clearCookie("jwt");
     res.json({
         message: "User logged out"
