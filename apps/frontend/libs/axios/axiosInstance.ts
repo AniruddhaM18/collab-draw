@@ -1,8 +1,7 @@
 import axios from "axios";
 import { cookies } from "next/headers";
 import { HTTP_BACKEND } from "@/config";
-import { config } from "process";
-import { error } from "console";
+
 
 let url = HTTP_BACKEND;
 
@@ -18,7 +17,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
     async (config) => {
         let token: string | undefined;
-        if(typeof "window" === undefined) {
+        if(typeof window === "undefined") {
             const cookieStore = await cookies();
             token = cookieStore.get("jwt")?.value;
         }else{
