@@ -1,0 +1,117 @@
+"use server";
+import { CreateUserSchema, SigninSchema } from "@repo/common/types";
+import { cookies } from "next/headers";
+import axiosInstance from "@/libs/axios/axiosInstance";
+
+export interface FormState{
+    message: string;
+    user? : {
+        id: string,
+        name: string,
+        username: string
+    };
+    errors?: any
+}
+
+export async function signupAction(
+    prevState: FormState,
+    formData: FormData
+    ): Promise<FormState> {
+    const rawFormData = {
+    name: `${formData.get("firstname")} ${formData.get("lastname")}`,
+    username: `${formData.get("username")}`,
+    password: `${formData.get("password")}`,
+    };
+     if (formData.get("password") !== formData.get("verify-password")) {
+    return { message: "Passwords do not match." };
+    };
+    const validatedFields = CreateUserSchema.safeParse(rawFormData);
+     if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Validation failed. Please check your inputs.",
+     };
+    }
+    try{
+    const res = await axiosInstance.post("/auth/signin", validatedFields.data);
+    if (res.data.token) {
+      (await cookies()).set("jwt", res.data.token, {
+        httpOnly: true,
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+      });
+    }
+    return {
+      user: {
+        id: res.data.user.id,
+        name: res.data.user.name,
+        username: res.data.user.username,
+      },
+      message: "User created successfully.",
+    };
+    } catch(err){
+    console.log(err);
+    console.log((err as any).response);
+    console.log((err as any).response.data);
+    if ((err as any).response.data.message) {
+      return { message: (err as any).response.data.message };
+    }
+    return { message: "Could not create user." };
+    }
+   }
+ export async function signinAction(
+  prevState: FormState,
+  formData: FormData
+): Promise<FormState> {
+  const rawFormData = {
+    username: `${formData.get("username")}`,
+    password: `${formData.get("password")}`,
+  };
+
+  const validatedFields = SigninSchema.safeParse(rawFormData);
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: "Validation failed. Please check your inputs.",
+    };
+  }
+
+  try {
+    const res = await axiosInstance.post("/auth/signin", validatedFields.data);
+    if (res.data.token) {
+      (await cookies()).set("jwt", res.data.token, {
+        httpOnly: true,
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+      });
+    }
+    return {
+      user: {
+        id: res.data.user.id,
+        name: res.data.user.name,
+        username: res.data.user.username,
+      },
+      message: "User logged in successfully.",
+    };
+  } catch (error) {
+    console.log(error);
+    console.log((error as any).response);
+    console.log((error as any).response.data);
+    if ((error as any).response.data.message) {
+      return { message: (error as any).response.data.message };
+    }
+    return { message: "Could not login user." };
+  }
+}
+
+export async function signoutAction() {
+  try {
+    const res = await axiosInstance.post("/auth/signout");
+    if (res.data.message) {
+      (await cookies()).delete("jwt");
+      return { message: res.data.message };
+    } else {
+      return { message: "Could not logout user." };
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
