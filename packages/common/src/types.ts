@@ -20,18 +20,18 @@ export const JoinRoomSchema = z.object({
 })
 
 export const WebSocketMessageSchema = z.object({
-    type : z.enum([
-        "connect_room",
-        "disconnect_room",
-        "chat_message",
-        "draw",
-        "error_message"
-    ]),
-    roomId: z.string(),
-    userId: z.string(),
-    content: z.string()
-})
+  // Messages shared via WebSocket (for frontend and ws - server)
+  type: z.enum([
+    "connect_room",
+    "disconnect_room",
+    "chat_message",
+    "draw",
+    "error_message",
+  ]),
+  roomId: z.string(),
+  userId: z.string(),
+  content: z.string().optional(),
+});
 
-
-export type WebsocketMessage = z.infer<typeof WebSocketMessageSchema>;
+export type WebSocketMessage = z.infer<typeof WebSocketMessageSchema>;
 

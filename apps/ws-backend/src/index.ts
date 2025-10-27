@@ -5,7 +5,6 @@ import { WebSocketMessageSchema } from "@repo/common/types";
 import { config } from "dotenv";
 import path from "path";
 import { JWT_SECRET, WS_PORT } from "@repo/backend-common/config";
-import { json } from "stream/consumers";
 
 interface WSConnection {
     userId : string,
@@ -154,7 +153,7 @@ wss.on("connection", async(socket : WebSocket, req: Request) => {
                         addedDraw = await prismaClient.draw.create({
                           data: {
                           id: draw.id,
-                          shape: draw.shape,
+                          shape: draw.shape?.toLowerCase(),
                           strokeStyle: draw.strokeStyle,
                           fillStyle: draw.fillStyle,
                           lineWidth: draw.lineWidth,
