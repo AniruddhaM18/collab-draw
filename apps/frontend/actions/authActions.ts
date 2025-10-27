@@ -33,7 +33,7 @@ export async function signupAction(
      };
     }
     try{
-    const res = await axiosInstance.post("/auth/signin", validatedFields.data);
+    const res = await axiosInstance.post("/auth/signup", validatedFields.data);
     if (res.data.token) {
       (await cookies()).set("jwt", res.data.token, {
         httpOnly: true,
