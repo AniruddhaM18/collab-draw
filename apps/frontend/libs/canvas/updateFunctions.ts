@@ -21,7 +21,7 @@ export function resizeDraw(
     farthestTopPoint: { point: "start" | "end" | "point"; y: number };
     farthestBottomPoint: { point: "start" | "end" | "point"; y: number };
   } | null,
-  intialPointsForFreeHandMove?: {
+  intialPointsForfreehandMove?: {
     initialPoint: { x: number; y: number };
     originalPoints: { x: number; y: number }[];
   } | null
@@ -188,20 +188,20 @@ export function resizeDraw(
     }
   }
   if (
-    selectedDraw.shape === "freeHand" &&
-    intialPointsForFreeHandMove?.originalPoints
+    selectedDraw.shape === "freehand" &&
+    intialPointsForfreehandMove?.originalPoints
   ) {
     const farthestLeft = Math.min(
-      ...intialPointsForFreeHandMove.originalPoints.map((point) => point.x)
+      ...intialPointsForfreehandMove.originalPoints.map((point) => point.x)
     );
     const farthestRight = Math.max(
-      ...intialPointsForFreeHandMove.originalPoints.map((point) => point.x)
+      ...intialPointsForfreehandMove.originalPoints.map((point) => point.x)
     );
     const farthestTop = Math.min(
-      ...intialPointsForFreeHandMove.originalPoints.map((point) => point.y)
+      ...intialPointsForfreehandMove.originalPoints.map((point) => point.y)
     );
     const farthestBottom = Math.max(
-      ...intialPointsForFreeHandMove.originalPoints.map((point) => point.y)
+      ...intialPointsForfreehandMove.originalPoints.map((point) => point.y)
     );
 
     const originalWidth = farthestRight - farthestLeft;
@@ -211,7 +211,7 @@ export function resizeDraw(
       case "left": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -226,7 +226,7 @@ export function resizeDraw(
       case "right": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -241,7 +241,7 @@ export function resizeDraw(
       case "top": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalHeight === 0) {
             point.y = y;
           } else {
@@ -256,7 +256,7 @@ export function resizeDraw(
       case "bottom": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalHeight === 0) {
             point.y = y;
           } else {
@@ -271,7 +271,7 @@ export function resizeDraw(
       case "topLeft": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -294,7 +294,7 @@ export function resizeDraw(
       case "topRight": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -317,7 +317,7 @@ export function resizeDraw(
       case "bottomRight": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -340,7 +340,7 @@ export function resizeDraw(
       case "bottomLeft": {
         selectedDraw.points!.forEach((point, index) => {
           const originalPoint =
-            intialPointsForFreeHandMove.originalPoints[index]!;
+            intialPointsForfreehandMove.originalPoints[index]!;
           if (originalWidth === 0) {
             point.x = x;
           } else {
@@ -462,7 +462,7 @@ export function moveDraw(
   offsetY: number,
   selectedDraw: Draw,
   diagrams: Draw[],
-  intialPointsForFreeHandMove?: {
+  intialPointsForfreehandMove?: {
     initialPoint: { x: number; y: number };
     originalPoints: { x: number; y: number }[];
   } | null
@@ -490,10 +490,10 @@ export function moveDraw(
     }));
   }
 
-  if (selectedDraw.shape === "freeHand" && intialPointsForFreeHandMove) {
-    const dx = intialPointsForFreeHandMove.initialPoint.x - x;
-    const dy = intialPointsForFreeHandMove.initialPoint.y - y;
-    selectedDraw.points = intialPointsForFreeHandMove.originalPoints.map(
+  if (selectedDraw.shape === "freehand" && intialPointsForfreehandMove) {
+    const dx = intialPointsForfreehandMove.initialPoint.x - x;
+    const dy = intialPointsForfreehandMove.initialPoint.y - y;
+    selectedDraw.points = intialPointsForfreehandMove.originalPoints.map(
       (point) => ({
         x: point.x - dx,
         y: point.y - dy,
@@ -568,7 +568,7 @@ export function handleShapeSelectionBox(
         lineWidth: 2,
         points: [p1, p2, p3],
       };
-    case "freeHand":
+    case "freehand":
       const points = draw.points!;
       farthestLeft = Math.min(...points.map((point) => point.x));
       farthestRight = Math.max(...points.map((point) => point.x));

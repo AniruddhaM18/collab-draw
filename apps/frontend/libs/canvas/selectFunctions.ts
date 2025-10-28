@@ -436,7 +436,7 @@ export const isWithinDraw: (
 
       return isInsideArrowhead;
     }
-    case "freeHand": {
+    case "freehand": {
       if (!draw.points || draw.points.length < 2) {
         return false;
       }
