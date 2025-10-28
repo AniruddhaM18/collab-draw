@@ -1,9 +1,9 @@
 import axios from "axios";
 import { cookies } from "next/headers";
-import { HTTP_BACKEND } from "@/config";
+import { NEXT_PUBLIC_HTTP_URL } from "@/config";
 
 
-let url = HTTP_BACKEND;
+let url = NEXT_PUBLIC_HTTP_URL;
 
 if(url && !url.endsWith("/api/v1")){
     url = url + "/api/v1"
