@@ -7,7 +7,7 @@ export interface Draw {
     | "line"
     | "arrow"
     | "text"
-    | "freeHand";
+    | "freehand";
   strokeStyle: string;
   fillStyle: string;
   lineWidth: number;
