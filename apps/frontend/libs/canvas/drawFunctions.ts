@@ -57,8 +57,8 @@ export const renderDraws = (
       case "arrow":
         renderArrow(ctx, diagram);
         break;
-      case "freeHand":
-        renderFreeHand(ctx, diagram);
+      case "freehand":
+        renderfreehand(ctx, diagram);
         break;
       case "text":
         renderText(ctx, diagram);
@@ -91,8 +91,8 @@ export const renderDraws = (
       case "arrow":
         renderArrow(ctx, activeDraw);
         break;
-      case "freeHand":
-        renderFreeHand(ctx, activeDraw);
+      case "freehand":
+        renderfreehand(ctx, activeDraw);
         break;
       case "text":
         renderText(ctx, activeDraw);
@@ -258,7 +258,7 @@ function renderArrow(ctx: CanvasRenderingContext2D, diagram: Draw) {
   ctx.restore();
 }
 
-function renderFreeHand(ctx: CanvasRenderingContext2D, diagram: Draw) {
+function renderfreehand(ctx: CanvasRenderingContext2D, diagram: Draw) {
   if (!diagram.points || diagram.points.length < 2) {
     return;
   }
