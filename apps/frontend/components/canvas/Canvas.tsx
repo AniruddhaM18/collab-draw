@@ -79,7 +79,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
     "select" | "move" | "draw" | "resize" | "edit" | "erase" | "pan" | "zoom"
   >("select");
   const [activeShape, setActiveShape] = useState<
-    "rectangle" | "diamond" | "circle" | "line" | "arrow" | "text" | "freeHand"
+    "rectangle" | "diamond" | "circle" | "line" | "arrow" | "text" | "freehand"
   >("rectangle");
   const [selectedShape, setSelectedShape] = useState<
     | "rectangle"
@@ -88,7 +88,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
     | "line"
     | "arrow"
     | "text"
-    | "freeHand"
+    | "freehand"
     | null
   >(null);
   const [activeStrokeStyle, setActiveStrokeStyle] = useState<string>("#eeeeee");
@@ -117,7 +117,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
   const movingOffset = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const panStartPoint = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const scale = useRef<number>(1);
-  const intialPointsForFreeHandMove = useRef<{
+  const intialPointsForfreehandMove = useRef<{
     initialPoint: { x: number; y: number };
     originalPoints: { x: number; y: number }[];
   } | null>(null);
@@ -477,7 +477,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
           case "f":
           case "F":
             setActiveAction("draw");
-            setActiveShape("freeHand");
+            setActiveShape("freehand");
             break;
           case "8":
           case "t":
@@ -617,7 +617,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             x: offsetX - draw.startX!,
             y: offsetY - draw.startY!,
           };
-          intialPointsForFreeHandMove.current = {
+          intialPointsForfreehandMove.current = {
             initialPoint: {
               x: offsetX,
               y: offsetY,
@@ -636,7 +636,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
           farthestPointsInfoForLineAndArror.current = calculateFarthestPoints(
             selectedDraw.current!
           );
-          intialPointsForFreeHandMove.current = {
+          intialPointsForfreehandMove.current = {
             initialPoint: {
               x: offsetX,
               y: offsetY,
@@ -726,7 +726,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
         }
 
         const currentActiveShape = activeShapeRef.current;
-        const isDrawing = currentActiveShape === "freeHand";
+        const isDrawing = currentActiveShape === "freehand";
         const isLineOrArrow =
           currentActiveShape === "line" || currentActiveShape === "arrow";
         const isText = currentActiveShape === "text";
@@ -821,7 +821,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
           selectedDraw.current!,
           diagrams.current,
           farthestPointsInfoForLineAndArror.current,
-          intialPointsForFreeHandMove.current
+          intialPointsForfreehandMove.current
         );
 
         if (!draw) return;
@@ -841,7 +841,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
           movingOffset.current.y,
           selectedDraw.current!,
           diagrams.current,
-          intialPointsForFreeHandMove.current
+          intialPointsForfreehandMove.current
         );
 
         modifiedDrawState.current = JSON.parse(JSON.stringify(draw));
@@ -863,7 +863,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
         currentX.current = offsetX;
         currentY.current = offsetY;
 
-        if (activeDraw.current.shape === "freeHand") {
+        if (activeDraw.current.shape === "freehand") {
           activeDraw.current.points?.push({
             x: currentX.current,
             y: currentY.current,
@@ -1050,7 +1050,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
 
         if (activeDraw.current.shape === "text") return;
 
-        if (activeDraw.current.shape !== "freeHand") {
+        if (activeDraw.current.shape !== "freehand") {
           activeDraw.current.endX = offsetX;
           activeDraw.current.endY = offsetY;
 
@@ -1632,17 +1632,17 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "freeHand" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "freehand" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
-                setActiveShape("freeHand");
+                setActiveShape("freehand");
                 if (activeDraw.current?.shape === "text") {
                   activeDraw.current = null;
                   shapeSelectionBox.current = null;
                 }
               }}
             >
-              {activeAction === "draw" && activeShape === "freeHand" ? (
+              {activeAction === "draw" && activeShape === "freehand" ? (
                 <PiPencilFill className="text-white" size="18" />
               ) : (
                 <PiPencil className="text-white" size="18" />
@@ -1837,10 +1837,10 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                 </div>
               </div>
             </div>
-          ) : activeShape === "freeHand" ||
+          ) : activeShape === "freehand" ||
             activeShape === "arrow" ||
             activeShape === "line" ||
-            selectedShape === "freeHand" ||
+            selectedShape === "freehand" ||
             selectedShape === "arrow" ||
             selectedShape === "line" ? (
             <div className="fixed px-3 py-2 z-2 w-fit h-fit border border-neutral-600 left-3 top-1/2 transform -translate-y-1/2 bg-black rounded-md">
