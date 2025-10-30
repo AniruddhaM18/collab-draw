@@ -20,7 +20,7 @@ const FormInput = ({
       type={type}
       placeholder={placeholder}
       required={required}
-      className="focus-visible:border-green-600/20 focus-visible:ring-green-600/10"
+      className="focus-visible:border-blue-400/20 focus-visible:ring-blue-400/10"
     />
   );
 };

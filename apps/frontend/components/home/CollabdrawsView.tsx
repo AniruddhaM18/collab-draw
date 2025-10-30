@@ -63,11 +63,11 @@ const MeetdrawsView = () => {
   return (
     <>
       <div className="flex w-full items-center justify-between">
-        <h3 className="text-xl font-medium">Your Meetdraws</h3>
+        <h3 className="text-xl font-medium">Your Collabdraws</h3>
 
         <div className="relative w-fit flex items-center rounded-lg">
           <Input
-            className="max-w-72 min-w-72 relative focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+            className="max-w-72 min-w-72 relative focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
             placeholder="Type to search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
