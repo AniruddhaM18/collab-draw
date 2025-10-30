@@ -14,12 +14,17 @@
 
 @font-face {
   font-family: "Pencerio";
-  src: url("./Pencerio-Hairline.otf");
+  src: url("./HankenGrotesk-MediumItalic.ttf");
+}
+
+@font-face {
+  font-family: "HankenGrotesk";
+  src: url("./Boldonse-Regular.ttf");
 }
 
 @font-face {
   font-family: "NunitoVariable";
-  src: url("./Nunito-Variable.ttf");
+  src: url("./HankenGrotesk-MediumItalic.ttf");
 }
 
 @font-face {
