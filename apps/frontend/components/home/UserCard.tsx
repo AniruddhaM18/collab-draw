@@ -37,7 +37,7 @@ const UserCard = () => {
   }
 
   return (
-    <Card className="backdrop-blur-md bg-black/50 hover:-translate-y-[2px] shadow hover:shadow-green-500/10 transition-all duration-300">
+    <Card className="backdrop-blur-md bg-black/50 hover:-translate-y-[2px] shadow hover:shadow-blue-500/10 transition-all duration-300">
       <CardHeader className="-mb-4">
         <div className="flex w-full justify-between items-center">
           <CardTitle className="flex gap-1 items-center">
@@ -65,7 +65,7 @@ const UserCard = () => {
       <CardContent className="space-y-2">
         <p>{user.name}</p>
         <p className="flex items-center gap-1">
-          Total Meetdraws -
+          Total Collabdraws -
           {rooms?.length ? (
             <span className="">{rooms.length}</span>
           ) : (
