@@ -11,9 +11,9 @@ export default async function page() {
         className="fixed text-white top-2 left-3 text-3xl font-pencerio cursor-pointer"
         href="/"
       >
-        meetdraw
+        CollabDraw
       </Link>
-      <div className="absolute h-[150px] w-[300px] -translate-y-25 -translate-x-15 bg-linear-90 from-green-500 via-green-500 to-green-400 z-1 blur-[120px]" />
+      <div />
       <SigninForm jwtCookie={jwtCookie || null} />
     </div>
   );
