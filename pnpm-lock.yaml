@@ -32,6 +32,9 @@ importers:
       axios:
         specifier: ^1.12.2
         version: 1.12.2
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
       lucide-react:
         specifier: ^0.546.0
         version: 0.546.0(react@19.2.0)
