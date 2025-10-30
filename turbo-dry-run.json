@@ -1,0 +1,741 @@
+{
+  "id": "34nTJr6Q7t9XwlFA4T9qQIgzSXi",
+  "version": "1",
+  "turboVersion": "2.5.8",
+  "monorepo": true,
+  "globalCacheInputs": {
+    "rootKey": "I can’t see ya, but I know you’re here",
+    "files": {},
+    "hashOfExternalDependencies": "e5807f117518e1fb",
+    "hashOfInternalDependencies": "",
+    "environmentVariables": {
+      "specified": {
+        "env": [],
+        "passThroughEnv": null
+      },
+      "configured": [],
+      "inferred": [],
+      "passthrough": null
+    },
+    "engines": {
+      "node": ">=18"
+    }
+  },
+  "packages": [
+    "@repo/backend-common",
+    "@repo/common",
+    "@repo/db",
+    "@repo/eslint-config",
+    "@repo/typescript-config",
+    "@repo/ui",
+    "frontend",
+    "http-backend",
+    "ws-backend"
+  ],
+  "envMode": "strict",
+  "frameworkInference": true,
+  "tasks": [
+    {
+      "taskId": "@repo/backend-common#build",
+      "task": "build",
+      "package": "@repo/backend-common",
+      "hash": "78e8783b2595db28",
+      "inputs": {
+        "package.json": "60faedd18f9c9bf42c2929926159087e59676790",
+        "src/index.ts": "9c38ed4dc004bc7a99b9b84dd25bdce09b851232",
+        "tsconfig.json": "8ac50d450ab8155013386633f989bf3f77f0c730"
+      },
+      "hashOfExternalDependencies": "373b85d274d8ba9d",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/backend-common/.turbo/turbo-build.log",
+      "directory": "packages/backend-common",
+      "dependencies": [
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [
+        "http-backend#build",
+        "ws-backend#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@repo/common#build",
+      "task": "build",
+      "package": "@repo/common",
+      "hash": "9c5d7c81bcd1c27a",
+      "inputs": {
+        "package.json": "988cf5fe89f9fc6384fcd30e5d5020d6ac831026",
+        "src/types.ts": "007049e4da3e59d98f7e64df0b358f8120aaba2f",
+        "tsconfig.json": "8ac50d450ab8155013386633f989bf3f77f0c730"
+      },
+      "hashOfExternalDependencies": "fcc194c02b9f4d49",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/common/.turbo/turbo-build.log",
+      "directory": "packages/common",
+      "dependencies": [
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [
+        "frontend#build",
+        "http-backend#build",
+        "ws-backend#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@repo/db#build",
+      "task": "build",
+      "package": "@repo/db",
+      "hash": "b3ce8bc9cb02b124",
+      "inputs": {
+        ".env": "bae486fe0098361099eb641ff41a3ac7744eb481",
+        ".gitignore": "126419ded645fad0cf1f736681aaa56f021af51e",
+        "package.json": "e49cc5616d46095b35bbd497d951937b17f0e112",
+        "prisma/migrations/20251025135224_updated_schema/migration.sql": "b60fa2aa9f316f25d1f34f8bb82df4e091d92cf7",
+        "prisma/migrations/migration_lock.toml": "044d57cdb0d5b5bff3475112359a4ee70439bf78",
+        "prisma/schema.prisma": "7a54eeea87158dadae15448e4123979e0618fef0",
+        "src/index.ts": "82e302238c0c5388e20255805bab8ada5632adfc",
+        "tsconfig.json": "82e73be56f1b8f87c8325f6d6eb20513236ccb39"
+      },
+      "hashOfExternalDependencies": "2f199473c1499c7a",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/db/.turbo/turbo-build.log",
+      "directory": "packages/db",
+      "dependencies": [
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [
+        "http-backend#build",
+        "ws-backend#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@repo/eslint-config#build",
+      "task": "build",
+      "package": "@repo/eslint-config",
+      "hash": "8c7c2d4d10a2273f",
+      "inputs": {
+        "README.md": "8b42d901b0e8dee2e21313ec0442c50e9fef038a",
+        "base.js": "09d316efdb6f6db4f6141815e87980a598f6ff54",
+        "next.js": "6bf01a74edb72f94da7957298427c89debdedc34",
+        "package.json": "c18143d61895bfef8c29778d7ee6b255d72b74d3",
+        "react-internal.js": "daeccba24d4f4b95ad293d175b570acd126628a9"
+      },
+      "hashOfExternalDependencies": "fa2cc6e4b9f91123",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/eslint-config/.turbo/turbo-build.log",
+      "directory": "packages/eslint-config",
+      "dependencies": [],
+      "dependents": [
+        "@repo/ui#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@repo/typescript-config#build",
+      "task": "build",
+      "package": "@repo/typescript-config",
+      "hash": "d1a04ccd0868d600",
+      "inputs": {
+        "base.json": "5117f2a3d1c5fe54a344a7152acbe366fe63cdda",
+        "nextjs.json": "e6defa48fce860cf5570f268d4880161a74789c8",
+        "package.json": "27c0e60436aac79bd14661e016c8c5721c5db6d6",
+        "react-library.json": "c3a1b26fbb3b6ad5d606836247a8ca3a1be051c6"
+      },
+      "hashOfExternalDependencies": "459c029558afe716",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/typescript-config/.turbo/turbo-build.log",
+      "directory": "packages/typescript-config",
+      "dependencies": [],
+      "dependents": [
+        "@repo/backend-common#build",
+        "@repo/common#build",
+        "@repo/db#build",
+        "@repo/ui#build",
+        "http-backend#build",
+        "ws-backend#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "@repo/ui#build",
+      "task": "build",
+      "package": "@repo/ui",
+      "hash": "e739cca061180d2f",
+      "inputs": {
+        "eslint.config.mjs": "19170f88edaf8893fdc80d2c616c081f2d838861",
+        "package.json": "a5cf18a02440746f8c83ea62daa3cae705b4381f",
+        "src/components/button.tsx": "f07c9ff82262acb5e170e6d23d8846c59b4f11fd",
+        "src/components/card.tsx": "01ccca55d9163d5c751f0338b3f36a46de6021d4",
+        "src/components/input.tsx": "22adea353b79c1c9d0248c6cd3e58439abe4ef39",
+        "src/components/label.tsx": "3bf0ae6bc52c2087067a471b72e7eef5b39b548b",
+        "src/components/sonner.tsx": "422b0ff0548dfd840a385865b2fcaf12dbe59ca4",
+        "src/components/tooltip.tsx": "80185a3678a932ad711a2b204f086b1897e7dd9a",
+        "src/styles/Boldonse-Regular.ttf": "43fa30affce39b3649e6e94122fbe17cc5536dd2",
+        "src/styles/CabinetGrotesk-Variable.ttf": "29cffe036d1c28acf36059c49b584435651467c7",
+        "src/styles/Comico-Regular.otf": "a5609203666270707aac73c0465bf16f1f49d67d",
+        "src/styles/HankenGrotesk-MediumItalic.ttf": "be526ec82ea5c13f14065c0ee32aeec3b67bea2b",
+        "src/styles/Nunito-Variable.ttf": "4e8d1f0534a5b8f17299e539e00d2df048958deb",
+        "src/styles/globals.css": "be3088dba199f1877ec43b15404c6b42286a5d9a",
+        "src/utils.ts": "a7dc3a1343ec0f5348deaa42dbb4a728f02de562",
+        "tsconfig.json": "ca86687c4bb77d8aed541bc31f9e81156880764a"
+      },
+      "hashOfExternalDependencies": "c66994709d9aa391",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "<NONEXISTENT>",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "packages/ui/.turbo/turbo-build.log",
+      "directory": "packages/ui",
+      "dependencies": [
+        "@repo/eslint-config#build",
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [
+        "frontend#build"
+      ],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "frontend#build",
+      "task": "build",
+      "package": "frontend",
+      "hash": "0e57a8daef7b8e65",
+      "inputs": {
+        ".env": "761263402b8b53e4f9e16ab6d42a158823e50545",
+        ".gitignore": "5ef6a520780202a1d6addd833d800ccb1ecac0bb",
+        "README.md": "e215bc4ccf138bbc38ad58ad57e92135484b3c0f",
+        "actions/authActions.ts": "0c47a0c4791d8ba884498e22b8f19ac8dce28c01",
+        "actions/chatActions.ts": "dc4d77e7a2ff7d035b67f9fb7097e128126474a2",
+        "actions/contentActions.ts": "75aec23792a6595df7fed3ae20eb7697e946ccb9",
+        "actions/roomActions.ts": "ff54cbeab12baf52d531489d7c48dee716f4656f",
+        "app/(auth)/signin/page.tsx": "57a09ed675df5f82c4bc42a45586828f8b654ad9",
+        "app/(auth)/signup/page.tsx": "c4cce88b7c8bfd4ae7a41302f2b1db2a9b99f44b",
+        "app/StoreProvider.tsx": "dd3c28968b556f2841430203b9aba21a119f9464",
+        "app/canvas/[roomId]/page.tsx": "e7ccf1381ab7c5a87609a9f7c9cd0e66be1cb3d2",
+        "app/create-room/page.tsx": "1f2b865d9d2efe971b12d06aa82c979b7992b244",
+        "app/demo/DemoCanvas.tsx": "40a2a05b17f2fb7ac2ae90391a882d18aaa83cda",
+        "app/demo/actionFunctions.ts": "a9a24e5163c8536b594b240174564902f131a30d",
+        "app/demo/page.tsx": "fa4352edc4aa0b0ce155b6dc6ea714c43f6e6405",
+        "app/favicon.ico": "77dd7230014f12350974ac8fc5ba770d65739fb5",
+        "app/globals.css": "e01dcc0b4a1a128528a82a62c37b4d7f0de13d96",
+        "app/home/page.tsx": "96adf32d8e31ca972e8dfa24f48412c5c8e73525",
+        "app/layout.tsx": "2fe9525fa1acaf48f632bf3d90fb06efc52b9985",
+        "app/page.tsx": "927e5a9060dcbafbe4123ff32ce46622d2965207",
+        "components/auth/SigninForm.tsx": "30cdda674413c7d4ac5ae99e0dd43305b9898b02",
+        "components/auth/SignupForm.tsx": "22891c8a85eacb4db5d7a59d194e5b19d0585b12",
+        "components/canvas/Canvas.tsx": "75e39adf3c5704148511145b4be8bf446eea8009",
+        "components/canvas/ChatBar.tsx": "f55e36d99771630996981bf7a13ac20427041028",
+        "components/common/FormInput.tsx": "076caef236f314ddf03ddde83dad8db98970b543",
+        "components/common/SubmitButton.tsx": "4f5fc4ae0319baa2d46bc11f34cc3b0e03caf88d",
+        "components/home/BackgroundHalo.tsx": "1db26fbc2b9d36f32ec768f9f890ee9cb4ad5304",
+        "components/home/ChatCard.tsx": "4a9e5ff00347e6606747d8d73196034d75c33c7f",
+        "components/home/ChatRoom.tsx": "6a07bfb37f370d6b9a0558a7fac2846802d56cb4",
+        "components/home/ChatsView.tsx": "08436ca7b2ec5391140a04d139dbab1b879edd8b",
+        "components/home/CollabdrawCard.tsx": "0d0962d217edfce6c427bd4d1e8d902a19c4b037",
+        "components/home/CollabdrawsView.tsx": "5eeb9aedfa89140e1978fbf9513d1fd36cf13905",
+        "components/home/CommsCard.tsx": "c92031d04a9bed2a0b2aa838b39b9468c211f29c",
+        "components/home/CreateRoomView.tsx": "12ef5a1a8b3aae71963b7e17eddfd65135044879",
+        "components/home/JoinRoomView.tsx": "706f7708e926b38317a0a8ed8dc47b20b2e92ee7",
+        "components/home/LinkButton.tsx": "0d2b30b273f904f44fdc80616e5a63a4bc15e845",
+        "components/home/MainPage.tsx": "d49cc9d2cae1cfab0681c0328a20590c95d141e5",
+        "components/home/StateButton.tsx": "39e9b4ea6ebaa08d081563d4a3cddf51ed81e72f",
+        "components/home/UserCard.tsx": "b78bdca031d1607eac21ad525f4da808b721a048",
+        "components/providers.tsx": "668b39c20c8978de3b723ed7828a4f99f13cc2dc",
+        "components/room/CreateForm.tsx": "788e210473bce4e549f426bf3481536d2514806b",
+        "config.ts": "9baa25d4178de15b9029504a6b8708d5d6fafac2",
+        "eslint.config.mjs": "05e726d1b4201bc8c7716d2b058279676582e8c0",
+        "libs/axios/axiosInstance.ts": "332af3ea0ed0821b075d0e4b2b75f1aca3e639fd",
+        "libs/canvas/actionRelatedFunctions.ts": "5057f31e67bd818ae05468b392b90d169b6b21d1",
+        "libs/canvas/drawFunctions.ts": "65f9449544d594af7c06080924acf2f060d92a55",
+        "libs/canvas/selectFunctions.ts": "6a53d891a8122728b9e08ae35edfd1d8e3117b17",
+        "libs/canvas/updateFunctions.ts": "12913b543d5e918414c08ebb4be7b863ed8c8456",
+        "libs/features/collabdraw/appSlice.ts": "ac36ba364330acf827a423cb99ccbf9814d269bd",
+        "libs/hooks/redux.ts": "24d72dbe4ae73c6ebca91bdde9873fb68dce8b25",
+        "libs/hooks/websocket.ts": "d133af8dacd8999a24b1933ed3852948489c60ae",
+        "libs/store.ts": "7c502526210c6ef950cd8e21240923528ca2afad",
+        "next.config.ts": "e9ffa3083ad279ecf95fd8eae59cb253e9a539c4",
+        "package.json": "0154d5f955026fc08c6d1a179cab6cbce9bca399",
+        "postcss.config.mjs": "61e36849cf7cfa9f1f71b4a3964a4953e3e243d3",
+        "tsconfig.json": "3a13f90a773b0facb675bf5b1a8239c8f33d36f5",
+        "types/index.ts": "b2f2117f8ddf53cdc5666e03db632920837bfa30"
+      },
+      "hashOfExternalDependencies": "c39826b046a4125d",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "next build",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "apps/frontend/.turbo/turbo-build.log",
+      "directory": "apps/frontend",
+      "dependencies": [
+        "@repo/common#build",
+        "@repo/ui#build"
+      ],
+      "dependents": [],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "nextjs",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "http-backend#build",
+      "task": "build",
+      "package": "http-backend",
+      "hash": "d8b80b9c264c4e90",
+      "inputs": {
+        "package.json": "b5ce9c355964a710e54b8eafdfad2a74613d6824",
+        "src/controller/auth.controller.ts": "67305068cc039e082f5ae15ce8c1c5775d2e0f90",
+        "src/controller/content.controller.ts": "0570a0f6ebb907d6778e605d5c5811a76161e7a6",
+        "src/controller/room.controller.ts": "d7b48cabb6d2176a1c86adda0bbc4c3f598e697b",
+        "src/index.ts": "8ee9a5ad4849bb2d09fe881f18a074afec0404ac",
+        "src/middleware.ts": "e1e07f81219efad5344b5ffb5d4c9bd84e833b30",
+        "src/routes/authRoutes.ts": "efef76275266e5bff3962003e2ba72018bf6e8c5",
+        "src/routes/contentRoutes.ts": "30240953e5df673559cf80a4dc1301426ec0a139",
+        "src/routes/roomRoutes.ts": "cfbadb7ab71a974ecf6ce0dc757d788aa4291b39",
+        "src/utils.ts": "7519f283bbf63e53ee38f297ec5b81b583e4e6d3",
+        "tsconfig.json": "c835e1525be39f6b626b5657817b34543f6aa9cf",
+        "tsconfig.tsbuildinfo": "55fd1e43ee8b3341a13cff70978ffbe198fda246"
+      },
+      "hashOfExternalDependencies": "e518ab4a030fed89",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "tsc -b",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "apps/http-backend/.turbo/turbo-build.log",
+      "directory": "apps/http-backend",
+      "dependencies": [
+        "@repo/backend-common#build",
+        "@repo/common#build",
+        "@repo/db#build",
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    },
+    {
+      "taskId": "ws-backend#build",
+      "task": "build",
+      "package": "ws-backend",
+      "hash": "d19c9ac67f3973ad",
+      "inputs": {
+        "package.json": "4fc8f58282ff27ba13823af32b0915a4120aff32",
+        "src/index.ts": "22358ea09d1cec08bf06160bc9ad3f56e3dd12af",
+        "tsconfig.json": "c835e1525be39f6b626b5657817b34543f6aa9cf",
+        "tsconfig.tsbuildinfo": "07137078d522493efe2e762e0da1308a2071528a"
+      },
+      "hashOfExternalDependencies": "c62fc176ba1159ea",
+      "cache": {
+        "local": false,
+        "remote": false,
+        "status": "MISS",
+        "timeSaved": 0
+      },
+      "command": "tsc -b",
+      "cliArguments": [],
+      "outputs": [
+        ".next/**"
+      ],
+      "excludedOutputs": [
+        ".next/cache/**"
+      ],
+      "logFile": "apps/ws-backend/.turbo/turbo-build.log",
+      "directory": "apps/ws-backend",
+      "dependencies": [
+        "@repo/backend-common#build",
+        "@repo/common#build",
+        "@repo/db#build",
+        "@repo/typescript-config#build"
+      ],
+      "dependents": [],
+      "with": [],
+      "resolvedTaskDefinition": {
+        "outputs": [
+          "!.next/cache/**",
+          ".next/**"
+        ],
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "$TURBO_DEFAULT$",
+          ".env*"
+        ],
+        "outputLogs": "full",
+        "persistent": false,
+        "interruptible": false,
+        "env": [],
+        "passThroughEnv": null,
+        "interactive": false
+      },
+      "expandedOutputs": [],
+      "framework": "",
+      "envMode": "strict",
+      "environmentVariables": {
+        "specified": {
+          "env": [],
+          "passThroughEnv": null
+        },
+        "configured": [],
+        "inferred": [],
+        "passthrough": null
+      }
+    }
+  ],
+  "user": "",
+  "scm": {
+    "type": "git",
+    "sha": "6b8ffa85700dd57787736be05f69c7a269121f67",
+    "branch": "main"
+  }
+}
+
