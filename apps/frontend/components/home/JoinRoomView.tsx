@@ -25,9 +25,9 @@ const JoinRoomView = () => {
   return (
     <>
       <div className="flex w-full items-center justify-between">
-        <h3 className="text-xl font-medium">Join a Meetdraw</h3>
+        <h3 className="text-xl font-medium">Join a Collabdraw</h3>
         <button
-          onClick={() => dispatch(setHomeView("meetdraws"))}
+          onClick={() => dispatch(setHomeView("collabdraw"))}
           className="cursor-pointer"
         >
           <RxCross1 className="w-4 h-4" />
@@ -48,7 +48,7 @@ const JoinRoomView = () => {
             </SubmitButton>
             {state.message ? (
               state.message.includes("success") ? (
-                <p className="text-center text-sm text-green-500">
+                <p className="text-center text-sm text-blue-500">
                   {state.message}
                 </p>
               ) : (

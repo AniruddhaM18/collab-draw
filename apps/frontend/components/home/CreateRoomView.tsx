@@ -26,9 +26,9 @@ const CreateRoomView = () => {
   return (
     <>
       <div className="flex w-full items-center justify-between">
-        <h3 className="text-xl font-medium">Create a new Meetdraw</h3>
+        <h3 className="text-xl font-medium">Create a new Collabdraw</h3>
         <button
-          onClick={() => dispatch(setHomeView("meetdraws"))}
+          onClick={() => dispatch(setHomeView("collabdraws"))}
           className="cursor-pointer"
         >
           <RxCross1 className="w-4 h-4" />
@@ -42,14 +42,14 @@ const CreateRoomView = () => {
               name="title"
               type="text"
               required={true}
-              placeholder="Enter a name for your Meetdraw"
+              placeholder="Enter a name for your Collabdraw"
             />
             <SubmitButton pending={isPending} loadingText="Creating...">
               {isPending ? "Creating..." : "Create"}
             </SubmitButton>
             {state.message ? (
               state.message.includes("success") ? (
-                <p className="text-center text-sm text-green-500">
+                <p className="text-center text-sm text-blue-500">
                   {state.message}
                 </p>
               ) : (
