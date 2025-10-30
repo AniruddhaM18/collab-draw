@@ -3,13 +3,13 @@ import { User, Room } from "@/types";
 
 const initialState: {
   user: User | null;
-  rooms: Room[] | null;
+  rooms: Room[];
   homeView: "meetdraws" | "create-room" | "join-room" | "chat";
   activeRoom: Room | null;
   backgroundHaloPosition: { x: string; y: string } | null;
 } = {
   user: null,
-  rooms: null,
+  rooms: [],
   homeView: "meetdraws",
   activeRoom: null,
   backgroundHaloPosition: null,
@@ -33,7 +33,7 @@ const appSlice = createSlice({
     },
     logout: (state) => {
       state.user = null;
-      state.rooms = null;
+      state.rooms = [];
     },
     setBackgroundHaloPosition: (state, action) => {
       state.backgroundHaloPosition = action.payload;
