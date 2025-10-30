@@ -14,7 +14,7 @@ const page = async () => {
   let rooms;
 
   try{
-    const { data } = await axiosInstance.get("/auth/info");
+    const { data } = await axiosInstance.post("/auth/info");
     user = data;
   } catch (e) {
     console.log("Error fetching user info")
@@ -22,10 +22,10 @@ const page = async () => {
   }
 
   try{
-    const { data } = await axiosInstance.get("/room/all");
+    const { data } = await axiosInstance.post("/room/all");
     rooms = data;
   } catch (e) {
-    console.log("Error fetching rooms")
+    console.log("Error fetching rooms") 
     console.log(e)
   }
 

@@ -56,22 +56,31 @@ const MainPage = ({
 
   const homeView = useAppSelector((state) => state.app.homeView);
 
-  const handleMouseMove = (event: MouseEvent) => {
-    dispatch(
-      setBackgroundHaloPosition({
-        x: event.clientX.toString(),
-        y: event.clientY.toString(),
-      })
-    );
-  };
+  // const handleMouseMove = (event: MouseEvent) => {
+  //   dispatch(
+  //     setBackgroundHaloPosition({
+  //       x: event.clientX.toString(),
+  //       y: event.clientY.toString(),
+  //     })
+  //   );
+  // };
 
   useEffect(() => {
     const homeDivCurrent = homeRef.current;
     if (!homeDivCurrent) return;
 
-    dispatch(setRooms(rooms));
+     console.log("rooms prop:", rooms);
 
-    homeDivCurrent.addEventListener("mousemove", handleMouseMove);
+  // Fix: unwrap or fallback
+  if (Array.isArray(rooms)) {
+    dispatch(setRooms(rooms));
+  } else if (rooms && Array.isArray((rooms as any).rooms)) {
+    dispatch(setRooms((rooms as any).rooms));
+  } else {
+    dispatch(setRooms([]));
+  }
+
+    // homeDivCurrent.addEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -79,27 +88,27 @@ const MainPage = ({
       ref={homeRef}
       className="flex overflow-clip relative w-screen h-screen p-2 gap-2 font-cabinet-grotesk tracking-wide bg-[#101010]"
     >
-      <BackgroundHalo />
+      {/* <BackgroundHalo /> */}
       <div className="h-full w-1/4 flex flex-col space-y-2 border p-2 rounded-xl backdrop-blur-md bg-black/10">
         <UserCard />
         <ChatsView />
       </div>
       <div className="flex-1 min-h-0 w-3/4 flex flex-col space-y-2 p-2 border rounded-xl backdrop-blur-md bg-black/10">
         <div className="border  rounded-lg flex items-center justify-between py-3 px-4 backdrop-blur-md bg-black/40">
-          <h1 className="text-2xl font-pencerio font-bold">meetdraw/ Home</h1>
+          <h1 className="text-2xl font-Comico font-bold"> Home</h1>
           <div className="flex gap-2">
             <StateButton
               variant="secondary"
               value="join-room"
               onClick={() => dispatch(setHomeView("join-room"))}
             >
-              Join Meetdraw
+              Join Collabdraw
             </StateButton>
             <StateButton
               value="create-room"
               onClick={() => dispatch(setHomeView("create-room"))}
             >
-              Add Meetdraw
+              Add Collabdraw
             </StateButton>
           </div>
         </div>
