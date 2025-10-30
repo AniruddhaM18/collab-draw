@@ -1456,7 +1456,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
   if (isLoading) {
     return (
       <div className="h-screen w-screen relative flex items-center justify-center bg-neutral-900">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-green-500" />
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border--500" />
       </div>
     );
   }
@@ -1465,10 +1465,10 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
     <TooltipProvider>
       <div className="h-screen w-screen relative">
         <div className="fixed z-2 w-fit h-fit bg-neutral-900 rounded-md left-3 top-3">
-          <div className="bg-green-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
+          <div className="bg-blue-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 hover:bg-green-600/20 cursor-pointer`}
+              className={`bg-transparent relative p-2 hover:bg-blue-400/80 cursor-pointer`}
               onClick={() => {
                 closeSocket();
                 redirect("/home");
@@ -1480,10 +1480,10 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
         </div>
 
         <div className="fixed z-2 w-fit h-fit bg-black rounded-lg right-3 top-3">
-          <div className="bg-green-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
+          <div className="bg-blue-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 hover:bg-green-600/20 cursor-pointer ${showChatBar ? "bg-green-600/40" : ""} ${unreadMessagesRef.current ? "bg-green-600/5" : ""}`}
+              className={`bg-transparent relative p-2 hover:bg-blue-400/20 cursor-pointer ${showChatBar ? "bg-blue-400/40" : ""} ${unreadMessagesRef.current ? "bg-blue-400/5" : ""}`}
               onClick={() => {
                 setShowChatBar(!showChatBar);
                 unreadMessagesRef.current = false;
@@ -1491,7 +1491,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             >
               <PiChatsCircle className="text-white" size="18" />
               {unreadMessagesRef.current && (
-                <div className="absolute top-0 right-0 w-2 h-2 bg-green-500 rounded-full" />
+                <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500 rounded-full" />
               )}
             </Button>
           </div>
@@ -1510,10 +1510,10 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
         )}
 
         <div className="fixed z-2 w-fit h-fit bg-black rounded-lg left-1/2 top-3 transform -translate-x-1/2">
-          <div className="bg-green-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
+          <div className="bg-blue-400/25 z-1 rounded-lg px-1.5 py-1 flex gap-1.5 items-center">
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "select" || activeAction === "move" || activeAction === "resize" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "select" || activeAction === "move" || activeAction === "resize" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("select");
                 if (activeDraw.current?.shape === "text") {
@@ -1535,7 +1535,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "rectangle" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "rectangle" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("rectangle");
@@ -1556,7 +1556,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "diamond" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "diamond" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("diamond");
@@ -1577,7 +1577,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "circle" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "circle" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("circle");
@@ -1598,7 +1598,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "line" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "line" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("line");
@@ -1615,7 +1615,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "arrow" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "arrow" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("arrow");
@@ -1632,7 +1632,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "freehand" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "draw" && activeShape === "freehand" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("freehand");
@@ -1653,7 +1653,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${(activeAction === "draw" && activeShape === "text") || activeAction === "edit" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${(activeAction === "draw" && activeShape === "text") || activeAction === "edit" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("draw");
                 setActiveShape("text");
@@ -1670,7 +1670,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent relative p-2 ${activeAction === "erase" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent relative p-2 ${activeAction === "erase" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("erase");
                 if (activeDraw.current?.shape === "text") {
@@ -1691,7 +1691,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             <PiLineVerticalLight size="20" />
             <Button
               size="icon"
-              className={`bg-transparent -ml-1 relative p-2 ${activeAction === "pan" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent -ml-1 relative p-2 ${activeAction === "pan" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("pan");
                 if (activeDraw.current?.shape === "text") {
@@ -1708,7 +1708,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </Button>
             <Button
               size="icon"
-              className={`bg-transparent -ml-0.5 relative p-2 ${activeAction === "zoom" ? "bg-green-600 hover:bg-green-600" : "hover:bg-green-600/20"} cursor-pointer`}
+              className={`bg-transparent -ml-0.5 relative p-2 ${activeAction === "zoom" ? "bg-blue-400 hover:bg-blue-400" : "hover:bg-blue-400/20"} cursor-pointer`}
               onClick={() => {
                 setActiveAction("zoom");
                 if (activeDraw.current?.shape === "text") {
@@ -1788,21 +1788,21 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                   <div className="flex items-center gap-2">
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white font-[Arial] -mr-1 ${activeFont === "Arial" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white font-[Arial] -mr-1 ${activeFont === "Arial" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFont("Arial")}
                     >
                       Abc
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white font-[Verdana] -mr-1 ${activeFont === "Verdana" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white font-[Verdana] -mr-1 ${activeFont === "Verdana" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFont("Verdana")}
                     >
                       Abc
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white font-[ComicSansMS] -mr-1 ${activeFont === "Comic Sans MS" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white font-[ComicSansMS] -mr-1 ${activeFont === "Comic Sans MS" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFont("Comic Sans MS")}
                     >
                       Abc
@@ -1814,21 +1814,21 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                   <div className="flex items-center gap-2">
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "20" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "20" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFontSize(20)}
                     >
                       S
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "40" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "40" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFontSize(40)}
                     >
                       M
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "60" ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeFontSize === "60" ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => changeActiveFontSize(60)}
                     >
                       L
@@ -1906,7 +1906,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                   <div className="flex items-center gap-2">
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 2 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 2 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(2);
                       }}
@@ -1932,7 +1932,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 3 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 3 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(3);
                       }}
@@ -1958,7 +1958,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 4 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 4 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(4);
                       }}
@@ -2106,7 +2106,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                   <div className="flex items-center gap-2">
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 3 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 3 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(3);
                       }}
@@ -2132,7 +2132,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 6 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 6 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(6);
                       }}
@@ -2158,7 +2158,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                     </Button>
                     <Button
                       size="sm"
-                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 9 ? "bg-green-600/40 hover:bg-green-600/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
+                      className={`relative cursor-pointer text-white -mr-1 ${activeLineWidth === 9 ? "bg-blue-400/40 hover:bg-blue-400/40" : "bg-neutral-900 hover:bg-neutral-800"}`}
                       onClick={() => {
                         changeActiveLineWidth(9);
                       }}
@@ -2193,10 +2193,10 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
 
         <div className="fixed flex gap-2 z-2 w-fit h-fit left-3 bottom-3 bg-neutral-900 rounded-md">
           <div className="bg-neutral-900 rounded-md">
-            <div className="bg-green-400/25 p-1 flex items-center rounded-md">
+            <div className="bg-blue-400/25 p-1 flex items-center rounded-md">
               <Button
                 size="icon"
-                className="bg-transparent relative cursor-pointer -mr-1 hover:bg-green-600/40"
+                className="bg-transparent relative cursor-pointer -mr-1 hover:bg-blue-400/40"
                 onClick={() => zoomToPoint(scale.current - 0.1)}
               >
                 <PiMinus className="text-white" size="18" />
@@ -2206,7 +2206,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                 <TooltipTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="bg-transparent relative cursor-pointer px-1 py-2 text-white font-mono text-sm h-auto hover:bg-green-600/40"
+                    className="bg-transparent relative cursor-pointer px-1 py-2 text-white font-mono text-sm h-auto hover:bg-blue-400/40"
                     onClick={() => zoomToPoint(1)}
                   >
                     {(zoomLevel * 100).toFixed(0)}%
@@ -2219,7 +2219,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
               <PiLineVerticalLight size="20" />
               <Button
                 size="icon"
-                className="bg-transparent relative cursor-pointer -ml-1 hover:bg-green-600/40"
+                className="bg-transparent relative cursor-pointer -ml-1 hover:bg-blue-400/40"
                 onClick={() => zoomToPoint(scale.current + 0.1)}
               >
                 <PiPlus className="text-white" size="18" />
@@ -2227,12 +2227,12 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
             </div>
           </div>
           <div className="bg-neutral-900 rounded-md">
-            <div className="bg-green-400/25 p-1 flex gap-2 items-center rounded-md">
+            <div className="bg-blue-400/25 p-1 flex gap-2 items-center rounded-md">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
                     size="icon"
-                    className="relative cursor-pointer border-r border-green-900 -mr-1 rounded-r-none bg-green-600/40 hover:bg-green-600/60"
+                    className="relative cursor-pointer border-r border-blue-900 -mr-1 rounded-r-none bg-blue-400/40 hover:bg-blue-400/60"
                     onClick={executeUndo}
                     disabled={!canUndo}
                   >
@@ -2247,7 +2247,7 @@ const Canvas = ({ roomId, token }: { roomId: string; token: string }) => {
                 <TooltipTrigger asChild>
                   <Button
                     size="icon"
-                    className="relative cursor-pointer border-l border-green-900 -ml-1 rounded-l-none bg-green-600/40 hover:bg-green-600/60"
+                    className="relative cursor-pointer border-l border-blue-900 -ml-1 rounded-l-none bg-blue-400/40 hover:bg-blue-400/60"
                     onClick={executeRedo}
                     disabled={!canRedo}
                   >

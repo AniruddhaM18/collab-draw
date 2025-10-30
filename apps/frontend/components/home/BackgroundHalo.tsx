@@ -20,7 +20,7 @@ const BackgroundHalo = () => {
         top: `${position?.y}px`,
         left: `${position?.x}px`,
       }}
-      className="w-[70px] h-[70px] blur-xl bg-green-600 rounded-full -translate-x-1/2 -translate-y-1/2"
+      className="w-[70px] h-[70px] blur-xl bg-blue-400 rounded-full -translate-x-1/2 -translate-y-1/2"
     />
   );
 };
