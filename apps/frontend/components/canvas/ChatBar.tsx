@@ -158,7 +158,7 @@ const ChatBar = ({
         >
           {isLoadingMore && (
             <div className="flex justify-center items-center gap-2 py-2">
-              <Loader2 className="w-4 h-4 animate-spin text-green-500" />
+              <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
               <p className="text-white/60 text-sm">Loading more messages...</p>
             </div>
           )}
@@ -173,7 +173,7 @@ const ChatBar = ({
                   key={`${message.id || index}`}
                   className={`${
                     isOwnMessage
-                      ? "ml-auto bg-green-600/15 rounded-tr-none"
+                      ? "ml-auto bg-blue-400/15 rounded-tr-none"
                       : "mr-auto bg-neutral-800/50 rounded-tl-none"
                   } max-w-[85%] py-2 px-3 rounded-xl backdrop-blur-sm`}
                 >
@@ -205,7 +205,7 @@ const ChatBar = ({
           >
             <FaChevronDown className="text-neutral-400" size={12} />
             {showBadge && (
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full" />
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full" />
             )}
           </button>
         )}
@@ -225,7 +225,7 @@ const ChatBar = ({
           <textarea
             ref={chatMessageInputRef}
             placeholder="Type your message..."
-            className="flex-1 bg-neutral-800 border border-neutral-600 rounded-lg px-3 py-2 text-white text-sm resize-none max-h-20 min-h-[2.5rem] focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded-full"
+            className="flex-1 bg-neutral-800 border border-neutral-600 rounded-lg px-3 py-2 text-white text-sm resize-none max-h-20 min-h-[2.5rem] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:bg-neutral-500 [&::-webkit-scrollbar-thumb]:rounded-full"
             onKeyDown={(e) => {
               e.stopPropagation();
               handleKeyDown(e);
@@ -240,7 +240,7 @@ const ChatBar = ({
           <Button
             onClick={handleSendMessage}
             size="sm"
-            className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg transition-colors"
+            className="bg-blue-400 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors"
           >
             <IoSend className="w-4 h-4" />
           </Button>

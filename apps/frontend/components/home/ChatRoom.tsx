@@ -121,7 +121,7 @@ const ChatRoom = ({ jwtCookie }: { jwtCookie: RequestCookie }) => {
     toast.error("No active room", {
       description: "Please select a room to chat",
     });
-    dispatch(setHomeView("meetdraws"));
+    dispatch(setHomeView("collabdraws"));
     return null;
   }
 
@@ -328,7 +328,7 @@ const ChatRoom = ({ jwtCookie }: { jwtCookie: RequestCookie }) => {
                     key={`${index}`}
                     className={`${
                       message.userId === userState.id
-                        ? "self-end rounded-tr-none bg-green-600/15"
+                        ? "self-end rounded-tr-none bg-blue-400/15"
                         : "rounded-tl-none bg-neutral-800/50"
                     } w-fit py-2 px-4 rounded-xl max-w-3/4 backdrop-blur-sm`}
                   >
@@ -363,7 +363,7 @@ const ChatRoom = ({ jwtCookie }: { jwtCookie: RequestCookie }) => {
             >
               <FaChevronDown className="text-2xl text-neutral-400" size={12} />
               {showBadge && (
-                <div className="bg-green-500 w-[5px] h-[5px] absolute rounded-full z-1 top-0 right-0" />
+                <div className="bg-blue-500 w-[5px] h-[5px] absolute rounded-full z-1 top-0 right-0" />
               )}
             </button>
           )}

@@ -20,18 +20,16 @@ const ChatCard = ({ room }: { room: Room }) => {
       }}
       className="w-full py-4 overflow-clip border cursor-pointer backdrop-blur-md bg-black/25 hover:-translate-y-[2px] transition-all duration-200"
     >
-      <CardHeader className="">
-        <CardTitle>{room.title}</CardTitle>
-        {room.Chat[0]?.user?.username ? (
-          <CardDescription className="truncate">
-            {room.Chat[0]?.user?.username}: {room.Chat[0]?.content}
-          </CardDescription>
-        ) : (
-          <CardDescription className="truncate">
-            Room by {room.admin.username}
-          </CardDescription>
-        )}
-      </CardHeader>
+     <CardHeader className="">
+  <CardTitle>{room.title}</CardTitle>
+  {Array.isArray(room.Chat) && room.Chat.length > 0 ? (
+    <CardDescription className="truncate">
+      {room.Chat[0]?.user?.username}: {room.Chat[0]?.content}
+    </CardDescription>
+  ) : (
+    <CardDescription>No messages yet</CardDescription>
+  )}
+</CardHeader>
     </Card>
   );
 };
