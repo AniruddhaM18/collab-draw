@@ -28,9 +28,9 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className="w-full overflow-clip relative p-0 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white border hover:border-green-600/20"
+      className="w-full overflow-clip relative p-0 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white border hover:border-blue-400/20"
     >
-      <div className="w-full h-full abolute flex items-center justify-center bg-linear-150 from-green-500/30 from-10% via-white/0 via-40% to-green-500/70 to-120%">
+      <div className="w-full h-full abolute flex items-center justify-center bg-linear-150 from-blue-500/30 from-10% via-white/0 via-40% to-blue-500/70 to-120%">
         {pending ? "Signing up..." : "Sign up"}
       </div>
     </Button>
@@ -77,7 +77,7 @@ export default function SignupForm({
         <CardDescription className="text-sm text-neutral-300">
           Create a new account to use{" "}
           <span className="font-pencerio font-bold tracking-wider">
-            meetdraw
+            Collabdraw
           </span>
         </CardDescription>
       </CardHeader>
@@ -92,7 +92,7 @@ export default function SignupForm({
                   name="firstname"
                   type="text"
                   placeholder="John"
-                  className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                  className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
                   required
                 />
               </div>
@@ -103,7 +103,7 @@ export default function SignupForm({
                   name="lastname"
                   type="text"
                   placeholder="Doe"
-                  className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                  className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
                   required
                 />
               </div>
@@ -115,7 +115,7 @@ export default function SignupForm({
                 name="username"
                 type="text"
                 placeholder="johndoe123"
-                className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
                 required
               />
             </div>
@@ -127,7 +127,7 @@ export default function SignupForm({
                 type="password"
                 minLength={8}
                 required
-                className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
               />
             </div>
             <div className="grid gap-2">
@@ -138,7 +138,7 @@ export default function SignupForm({
                 type="text"
                 minLength={8}
                 required
-                className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
               />
             </div>
             {state.message && (
@@ -154,7 +154,7 @@ export default function SignupForm({
       <CardFooter className="flex-col gap-2 -mt-3">
         <p className="self-start text-xs">
           Already have an account?{" "}
-          <Link href={"/signin"} className="underline hover:text-green-500">
+          <Link href={"/signin"} className="underline hover:text-blue-500">
             Sign in.
           </Link>
         </p>

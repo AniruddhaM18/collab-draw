@@ -28,9 +28,9 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className="w-full overflow-clip relative p-0 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white border hover:border-green-600/20"
+      className="w-full overflow-clip relative p-0 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white border hover:border-blue-400/20"
     >
-      <div className="w-full h-full abolute flex items-center justify-center bg-linear-150 from-green-500/30 from-10% via-white/0 via-40% to-green-500/70 to-120%">
+      <div className="w-full h-full abolute flex items-center justify-center bg-linear-150 from-blue-500/30 from-10% via-white/0 via-40% to-blue-500/70 to-120%">
         {pending ? "Signing in..." : "Sign in"}
       </div>
     </Button>
@@ -77,7 +77,7 @@ export default function SigninForm({
         <CardDescription className="text-sm text-neutral-300">
           Sign in to use{" "}
           <span className="font-pencerio font-bold tracking-wider">
-            meetdraw
+            Collabdraw
           </span>
         </CardDescription>
       </CardHeader>
@@ -91,7 +91,7 @@ export default function SigninForm({
                 name="username"
                 type="text"
                 placeholder="johndoe123"
-                className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
                 required
               />
             </div>
@@ -103,7 +103,7 @@ export default function SigninForm({
                 type="password"
                 minLength={8}
                 required
-                className="focus-visible:border-green-600/50 focus-visible:ring-green-600/20"
+                className="focus-visible:border-blue-400/50 focus-visible:ring-blue-400/20"
               />
             </div>
             {state.message && (
@@ -119,7 +119,7 @@ export default function SigninForm({
       <CardFooter className="flex-col gap-2 -mt-3">
         <p className="self-start text-xs">
           Don't have an account?{" "}
-          <Link href={"/signup"} className="underline hover:text-green-500">
+          <Link href={"/signup"} className="underline hover:text-blue-500">
             Sign up.
           </Link>
         </p>
